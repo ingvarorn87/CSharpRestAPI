@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using VideoManagerBLL;
+using VideoManagerBLL.BusinessObjects;
 
 namespace VideoRestAPI.Controllers
 {
@@ -11,24 +13,28 @@ namespace VideoRestAPI.Controllers
     [Route("api/[controller]")]
     public class VideosController : Controller
     {
+
+        BLLFacade facade = new BLLFacade();
+
         // GET: api/Videos
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<VideoBO> Get()
         {
-            return new string[] { "value1", "value2" };
+            return facade.VideoService.GetAll();
         }
 
         // GET: api/Videos/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public VideoBO Get(int id)
         {
-            return "value";
+            return facade.VideoService.Get(id);
         }
         
         // POST: api/Videos
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]VideoBO vid)
         {
+            facade.VideoService.Create(vid);
         }
         
         // PUT: api/Videos/5
