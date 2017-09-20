@@ -56,6 +56,13 @@ namespace VideoRestAPI
                         Year = 2006,
                         Genre = "End Of Life"
                     });
+                facade.VideoService.Create(
+                    new VideoBO()
+                    {
+                        VideoName = "THe Shining",
+                        Year = 1989,
+                        Genre = "Horror"
+                    });
             }
 
             app.UseMvc();
