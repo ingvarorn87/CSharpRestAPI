@@ -39,9 +39,23 @@ namespace VideoRestAPI.Controllers
         
         // PUT: api/Videos/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]VideoBO vid)
+        public IActionResult Put(int id, [FromBody]VideoBO vid)
         {
-            facade.VideoService.Update(vid);
+            if (id != vid.Id)
+            {
+                return StatusCode(405 , "Path ID does not math the Video ID");
+            }
+            try
+            {
+                var video = facade.VideoService.Update(vid);
+                return Ok(vid);
+            }
+            catch (InvalidOperationException e)
+            {
+
+                return StatusCode(404, e.Message);
+            }
+            
         }
         
         // DELETE: api/ApiWithActions/5
