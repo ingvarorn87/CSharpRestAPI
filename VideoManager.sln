@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoManagerBLL", "VideoMan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoManagerDAL", "VideoManagerDAL\VideoManagerDAL.csproj", "{CAAFE45F-F0C8-4359-B253-34DFC372CE2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoRestAPI", "VideoRestAPI\VideoRestAPI.csproj", "{3639B12A-080F-4550-83E9-71BE5B6EAC0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoRestAPI", "VideoRestAPI\VideoRestAPI.csproj", "{3639B12A-080F-4550-83E9-71BE5B6EAC0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
