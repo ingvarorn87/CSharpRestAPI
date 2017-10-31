@@ -19,5 +19,6 @@ namespace VideoManagerDAL.Context
 
         }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

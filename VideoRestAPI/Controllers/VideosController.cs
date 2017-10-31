@@ -32,9 +32,14 @@ namespace VideoRestAPI.Controllers
         
         // POST: api/Videos
         [HttpPost]
-        public void Post([FromBody]VideoBO vid)
+        public IActionResult Post([FromBody]VideoBO vid)
         {
-            facade.VideoService.Create(vid);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(facade.VideoService.Create(vid));
         }
         
         // PUT: api/Videos/5
