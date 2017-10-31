@@ -1,31 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using VideoManagerDAL.Context;
 using VideoManagerDAL.Entities;
 
 namespace VideoManagerDAL.Repositories
 {
     class OrderRepository : IOrderRepository
     {
-
-        public Order Create(Order vid)
+        VideoAppContext _context;
+        public OrderRepository(VideoAppContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public Order Create(Order order)
+        {
+            _context.Orders.Add(order);
+            return order;
         }
 
         public Order Delete(int Id)
         {
-            throw new NotImplementedException();
+            var order = Get(Id);
+            _context.Orders.Remove(order);
+            return order;
         }
 
         public Order Get(int Id)
         {
-            throw new NotImplementedException();
+            return _context.Orders.FirstOrDefault(o => o.Id == Id);
         }
 
         public List<Order> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Orders.ToList();
         }
     }
 }
