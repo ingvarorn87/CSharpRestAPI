@@ -6,15 +6,15 @@ using VideoManagerDAL.Entities;
 
 namespace VideoManagerDAL.Context
 {
-    class InMemoryContext : DbContext
+    class VideoAppContext : DbContext
     {
-        static DbContextOptions<InMemoryContext> options =
-            new DbContextOptionsBuilder<InMemoryContext>()
+        static DbContextOptions<VideoAppContext> options =
+            new DbContextOptionsBuilder<VideoAppContext>()
                         .UseInMemoryDatabase("TheDB")
                         .Options;
 
         //
-        public InMemoryContext() : base(options)
+        public VideoAppContext() : base(options)
         {
 
         }
