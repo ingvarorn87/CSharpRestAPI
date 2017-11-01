@@ -63,6 +63,12 @@ namespace VideoRestAPI
                         Year = 1989,
                         Genre = "Horror"
                     });
+                facade.OrderService.Create(
+                    new OrderBO()
+                    {
+                        DeliveryDate = DateTime.Now.AddMonths(1),
+                        OrderDate = DateTime.Now.AddMonths(-1)
+                    });
             }
 
             app.UseMvc();
