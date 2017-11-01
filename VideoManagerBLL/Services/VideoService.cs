@@ -29,6 +29,20 @@ namespace VideoManagerBLL.Services
             }
             
         }
+        public void CreateAll(List<VideoBO> videos)
+        {
+            using (var uow = facade.UnitOfWork)
+            {
+                foreach (var video in videos)
+                {
+                    uow.VideoRepository.Create(conv.Convert(video));
+                    
+                }
+                uow.Complete();
+                
+            }
+
+        }
 
         public VideoBO Delete(int Id)
         {
