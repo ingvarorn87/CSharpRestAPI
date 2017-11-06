@@ -10,6 +10,7 @@ namespace VideoManagerDAL.Entities
         public string Genre { get; set; }
         public int Year { get; set; }
         public int Id { get; set; }
+       
         public List<Order> Orders { get; set; }
     }
 }

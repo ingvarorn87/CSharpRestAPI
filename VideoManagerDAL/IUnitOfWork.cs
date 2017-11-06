@@ -8,6 +8,7 @@ namespace VideoManagerDAL
     {
         IVideoRepository VideoRepository { get; }
         IOrderRepository OrderRepository { get; }
+
         int Complete();
     }
 }

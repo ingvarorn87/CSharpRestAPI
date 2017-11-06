@@ -8,9 +8,12 @@ namespace VideoManagerDAL.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
-
+       
         public IVideoRepository VideoRepository { get; internal set; }
         public IOrderRepository OrderRepository { get; internal set; }
+
+        
+
         private VideoAppContext context;
 
         public UnitOfWork()
@@ -18,6 +21,7 @@ namespace VideoManagerDAL.UOW
             context = new VideoAppContext();
             VideoRepository = new VideoRepositoryEFMemory(context);
             OrderRepository = new OrderRepository(context);
+            
         }
 
         public int Complete()

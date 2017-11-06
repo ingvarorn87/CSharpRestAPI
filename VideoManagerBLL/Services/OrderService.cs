@@ -66,7 +66,11 @@ namespace VideoManagerBLL.Services
                 }
                 orderEntity.DeliveryDate = order.DeliveryDate;
                 orderEntity.OrderDate = order.OrderDate;
+                orderEntity.VideoId = order.VideoId;
+
                 uow.Complete();
+
+                orderEntity.Video = uow.VideoRepository.Get(orderEntity.VideoId);
                 return conv.Convert(orderEntity);
             }
         }
