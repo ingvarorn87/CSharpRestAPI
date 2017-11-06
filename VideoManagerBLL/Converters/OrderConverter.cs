@@ -14,7 +14,7 @@ namespace VideoManagerBLL.Converters
             {
                 Id = order.Id,
                 DeliveryDate = order.DeliveryDate,
-                OrderDate = order.OrderDate
+                OrderDate = order.OrderDate,
                 Video = new VideoConverter().Convert(order.Video)
 
             };
