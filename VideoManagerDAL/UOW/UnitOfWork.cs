@@ -12,13 +12,12 @@ namespace VideoManagerDAL.UOW
         public IVideoRepository VideoRepository { get; internal set; }
         public IOrderRepository OrderRepository { get; internal set; }
 
-        
-
         private VideoAppContext context;
 
         public UnitOfWork()
         {
             context = new VideoAppContext();
+            context.Database.EnsureCreated();
             VideoRepository = new VideoRepositoryEFMemory(context);
             OrderRepository = new OrderRepository(context);
             
