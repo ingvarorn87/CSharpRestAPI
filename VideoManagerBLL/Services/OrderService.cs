@@ -42,6 +42,7 @@ namespace VideoManagerBLL.Services
             using (var uow = _facade.UnitOfWork)
             {
                 var orderEntity = uow.OrderRepository.Get(Id);
+                orderEntity.Video = uow.VideoRepository.Get(orderEntity.VideoId);
                 return conv.Convert(orderEntity);
             }
         }
