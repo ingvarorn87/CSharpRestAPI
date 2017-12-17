@@ -17,9 +17,10 @@ namespace VideoManagerDAL.UOW
         public UnitOfWork()
         {
             context = new VideoAppContext();
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
-            VideoRepository = new VideoRepositoryEFMemory(context);
-            OrderRepository = new OrderRepository(context);
+           // VideoRepository = new VideoRepositoryEFMemory(context);
+           // OrderRepository = new OrderRepository(context);
             
         }
 
