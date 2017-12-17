@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VideoManagerBLL;
 using VideoManagerBLL.BusinessObjects;
+using Microsoft.AspNetCore.Cors;
 
 namespace VideoRestAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class VideosController : Controller
