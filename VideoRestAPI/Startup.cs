@@ -40,7 +40,7 @@ namespace VideoRestAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-               /* var facade = new BLLFacade();
+                var facade = new BLLFacade();
                 var vid = facade.VideoService.Create(
                     new VideoBO()
                     {
@@ -78,7 +78,7 @@ namespace VideoRestAPI
                         OrderDate = DateTime.Now.AddMonths(-1),
                         VideoId = vid.Id
                     });
-            }*/
+            }
             }
 
             app.UseMvc();
